@@ -13,10 +13,8 @@ B.E. Computer Engineering student passionate about Cloud Computing and DevOps.
 - Terraform
 - Kubernetes
 
-## Technologies
-HTML, CSS, JavaScript
-
 ## Contact
-GitHub | LinkedIn
+GitHub-https://github.com/Sonali-Thorat26
+LinkedIn-https://www.linkedin.com/in/sonali-thorat-8433vs
 
 © 2026 Sonali Thorat
