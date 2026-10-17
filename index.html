@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sonali Thorat | Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 100px 2rem 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .typing-text {
+            font-size: 1.15rem;
+            color: white;
+            margin-bottom: 2rem;
+            min-height: 60px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px #0003;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff70;
+            box-shadow: 0 20px 60px #0004;
+            transition: 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Common Sections */
+
+        .section {
+            padding: 100px 0;
+            scroll-margin-top: 65px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0001;
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px #0002;
+        }
+
+        .skill-icon {
+            font-size: 2.7rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .progress-bar {
+            background: #eee;
+            height: 8px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 1.5s ease;
+        }
+
+        /* Education */
+
+        .studies-timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0001;
+            border-left: 5px solid #667eea;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: #666;
+        }
+
+        /* Gallery */
+
+        .gallery {
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px #0002;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Projects */
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0001;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px #0002;
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            margin-bottom: 1rem;
+        }
+
+        .project-tags span {
+            display: inline-block;
+            background: #eef0ff;
+            color: #5966bd;
+            border-radius: 15px;
+            padding: 4px 10px;
+            margin: 3px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        /* Job Journey */
+
+        .journey-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .journey-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0001;
+            margin-bottom: 2rem;
+            border-left: 5px solid #764ba2;
+        }
+
+        .journey-date {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .journey-title {
+            margin: 0.5rem 0;
+        }
+
+        /* Contact */
+
+        #contact {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-text {
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-details p {
+            margin: 1rem;
+        }
+
+        .contact-details i {
+            color: #667eea;
+            margin-right: 10px;
+        }
+
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Footer */
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.6rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #a7b5ff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ffffff30;
+            padding-top: 1rem;
+            margin-top: 2rem;
+            color: #bdc3c7;
+        }
+
+        /* Animation */
+
+        .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.7s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                box-shadow: 0 10px 20px #0001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-img {
+                width: 230px;
+                height: 230px;
+            }
+
+            .section-title {
+                font-size: 1.9rem;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .container {
+                padding: 0 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <div class="logo">Sonali Thorat</div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#studies">Studies</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <h1>Hi, I'm Sonali Thorat</h1>
+
+                <div class="typing-text" id="typing-text"></div>
+
+                <p style="color:white; margin-bottom:25px;">
+                    A Computer Engineering student passionate about
+                    Cloud Computing, DevOps and technology.
+                    I enjoy learning new tools and building practical projects.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Get In Touch
+                    </a>
+
+                    <a href="#projects" class="btn btn-secondary">
+                        View My Work
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="sonali-img.jpeg"
+                     alt="Sonali Thorat Profile Photo"
+                     class="profile-img">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+
+    <section id="skills" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title fade-in">My Skills</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card fade-in">
+                    <i class="fab fa-aws skill-icon"></i>
+                    <h3 class="skill-name">AWS Cloud</h3>
+                    <p>Learning cloud services such as EC2, S3, IAM, VPC and RDS.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-skill="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <i class="fab fa-docker skill-icon"></i>
+                    <h3 class="skill-name">Docker</h3>
+                    <p>Containerizing applications and running Docker containers.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-skill="75"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <i class="fas fa-code-branch skill-icon"></i>
+                    <h3 class="skill-name">Jenkins & CI/CD</h3>
+                    <p>Building automated pipelines for application deployment.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-skill="75"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <i class="fab fa-linux skill-icon"></i>
+                    <h3 class="skill-name">Linux</h3>
+                    <p>Linux commands, user management, permissions and shell scripting.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-skill="80"></div>
+                    </div>
+                </div>
+
+            
+                <div class="skill-card fade-in">
+                    <i class="fas fa-dharmachakra skill-icon"></i>
+                    <h3 class="skill-name">Kubernetes</h3>
+                    <p>Learning pods, deployments, services and container orchestration.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-skill="60"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Education Section -->
+
+    <section id="studies" class="section" style="background:#f8f9fa;">
+
+        <div class="container">
+
+            <h2 class="section-title fade-in">
+                Education & Training
+            </h2>
+
+            <div class="studies-timeline">
+
+               <!-- Diploma Education -->
+                <div class="timeline-item fade-in">
+
+    <div class="timeline-date">
+        2021 - 2024
+    </div>
+
+    <h3 class="timeline-title">
+        Diploma in Computer Engineering
+    </h3>
+
+    <p class="timeline-desc">
+        Graduated with distinction in Computer Engineering.
+    </p>
+
+</div>
+
+               <div class="timeline-item fade-in">
+
+    <div class="timeline-date">
+        2024 - 2027
+    </div>
+
+    <h3 class="timeline-title">
+         B.E. Computer Engineering
+        Savitribai Phule Pune University (SPPU)
+       
+    </h3>
+
+    <p class="timeline-desc">
+        Vishwabharati Academy College of Engineering  Ahilyanagar, Maharashtra.
+        
+    </p>
+
+</div>
+
+                <div class="timeline-item fade-in">
+
+    <div class="timeline-date">
+        Jan 2026 - Apr 2026
+    </div>
+
+    <h3 class="timeline-title">
+        Cloud Application Developer
+    </h3>
+
+    <p class="timeline-desc">
+        Technical Training - Eduspark International Pvt.Ltd. Pune
+    </p>
+
+</div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Gallery Section -->
+
+    <<section id="gallery" class="section gallery">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">My Gallery</h2>
+
+            <!-- Photo 2 -->
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                     alt="Technology">
+                <div class="gallery-caption">
+                    <h3>Technology</h3>
+                    <p>Exploring new technologies.</p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                     alt="Laptop Coding">
+                <div class="gallery-caption">
+                    <h3>Coding</h3>
+                    <p>Learning and building projects.</p>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                     alt="Digital Technology">
+                <div class="gallery-caption">
+                    <h3>Digital World</h3>
+                    <p>Learning and growing every day.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- Projects Section -->
+
+    <section id="projects" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title fade-in">My Projects</h2>
+
+            <div class="skills-grid">
+
+                <div class="project-card fade-in">
+
+                    <h3>
+                        <i class="fas fa-code-branch"></i>
+                        End-to-End CI/CD Pipeline
+                    </h3>
+
+                    <p>
+                        Automated application deployment using Jenkins,
+                        Docker and AWS EC2. The project demonstrates
+                        source code integration, Docker image building
+                        and application deployment.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Jenkins</span>
+                        <span>Docker</span>
+                        <span>AWS EC2</span>
+                        <span>GitHub</span>
+                        </div>
+
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <h3>
+                        <i class="fas fa-server"></i>
+                        Automated Infrastructure Deployment
+                    </h3>
+                    <p>
+                        Automated infrastructure deployment using Shell
+                        Scripting, Terraform and AWS. This project helps
+                        automate infrastructure setup and management.
+                    </p>
+                    <div class="project-tags">
+                        <span>Linux</span>
+                        <span>Shell Scripting</span>
+                        <span>Terraform</span>
+                        <span>AWS</span>
+                    </div>
+                    <a href="https://github.com/Sonali-Thorat26/Automated-Infrastructure-Deployment-Terraform"
+                       target="_blank" rel="noopener noreferrer">
+                        View Project on GitHub
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <h3>
+                        <i class="fas fa-heartbeat"></i>
+                        Tuberculosis Detection Using AI
+                    </h3>
+                    <p>
+                        An academic project using Multimodal Learning
+                        and Explainable AI to support tuberculosis
+                        detection from medical images and clinical data.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Deep Learning</span>
+                        <span>Grad-CAM</span>
+                        <span>SHAP</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+
+            <div class="social-links">
+                <a href="https://github.com/Sonali-Thorat26"
+                   target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/sonali-thorat-8433vs"
+                   target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sonali Thorat. All Rights Reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
